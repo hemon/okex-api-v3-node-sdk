@@ -513,7 +513,43 @@ export function AuthenticatedClient(
           readonly margin_mode: string;
         }): Promise<any> {
           return post(`/api/futures/v3/accounts/margin_mode`, params);
-        }
+        },
+        async postOrderAlgo (params: {
+          readonly instrument_id: string;
+          readonly type: string;
+          readonly order_type: string;
+          readonly size: string;
+          readonly trigger_price?: string;
+          readonly algo_price?: string;
+          readonly callback_rate?: string;
+          readonly algo_variance?: string;
+          readonly avg_amount?: string;
+          readonly price_limit?: string;
+          readonly sweep_range?: string;
+          readonly sweep_ratio?: string;
+          readonly single_limit?: string;
+          readonly time_interval?: string;
+        }): Promise<any> {
+          return post(`/api/futures/v3/order_algo`, params);
+        },
+        async getOrderAlgo (params: {
+          readonly instrument_id: string;
+          readonly order_type: string;
+          readonly status?: string;
+          readonly algo_ids?: string;
+          readonly before?: string;
+          readonly after?: string;
+          readonly limit?: string;
+        }): Promise<any> {
+          return get(`/api/futures/v3/order_algo`, params);
+        },
+        async postCancleAlgos (params: {
+          readonly instrument_id: string;
+          readonly algo_ids: string;
+          readonly order_type: string;
+        }): Promise<any> {
+          return post(`/api/futures/v3/cancel_algos`, params);
+        },
       };
     },
     swap(): any {
