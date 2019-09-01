@@ -507,6 +507,12 @@ export function AuthenticatedClient(
         },
         async getHolds(instrument_id: string): Promise<any> {
           return get(`/api/futures/v3/accounts/${instrument_id}/holds`);
+        },
+        async postMarginMode (params: {
+          readonly currency: string;
+          readonly margin_mode: string;
+        }): Promise<any> {
+          return post(`/api/futures/v3/accounts/margin_mode`, params);
         }
       };
     },
