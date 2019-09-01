@@ -532,7 +532,7 @@ export function AuthenticatedClient(
         }): Promise<any> {
           return post(`/api/futures/v3/order_algo`, params);
         },
-        async getOrderAlgo (params: {
+        async getOrderAlgo (instrument_id: string, params: {
           readonly instrument_id: string;
           readonly order_type: string;
           readonly status?: string;
@@ -541,7 +541,7 @@ export function AuthenticatedClient(
           readonly after?: string;
           readonly limit?: string;
         }): Promise<any> {
-          return get(`/api/futures/v3/order_algo`, params);
+          return get(`/api/futures/v3/order_algo/${instrument_id}?${querystring.stringify(params)}`);
         },
         async postCancleAlgos (params: {
           readonly instrument_id: string;
