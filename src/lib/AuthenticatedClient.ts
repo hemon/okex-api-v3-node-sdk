@@ -543,7 +543,7 @@ export function AuthenticatedClient(
         }): Promise<any> {
           return get(`/api/futures/v3/order_algo/${instrument_id}?${querystring.stringify(params)}`);
         },
-        async postCancleAlgos (params: {
+        async postCancelAlgos (params: {
           readonly instrument_id: string;
           readonly algo_ids: string;
           readonly order_type: string;
