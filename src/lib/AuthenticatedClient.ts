@@ -543,12 +543,12 @@ export function AuthenticatedClient(
         }): Promise<any> {
           return get(`/api/futures/v3/order_algo/${instrument_id}?${querystring.stringify(params)}`);
         },
-        async postCancelAlgos (params: {
+        async postCancelAlgo (params: {
           readonly instrument_id: string;
           readonly algo_ids: string;
           readonly order_type: string;
         }): Promise<any> {
-          return post(`/api/futures/v3/cancel_algos`, params);
+          return post(`/api/futures/v3/cancel_algo`, params);
         },
       };
     },
