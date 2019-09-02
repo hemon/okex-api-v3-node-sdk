@@ -254,7 +254,7 @@ function AuthenticatedClient(key, secret, passphrase, apiUri = 'https://www.okex
                 async getOrderAlgo(instrument_id, params) {
                     return get(`/api/futures/v3/order_algo/${instrument_id}?${querystring.stringify(params)}`);
                 },
-                async postCancleAlgos(params) {
+                async postCancelAlgos(params) {
                     return post(`/api/futures/v3/cancel_algos`, params);
                 },
             };
