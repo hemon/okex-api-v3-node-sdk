@@ -459,6 +459,18 @@ export function AuthenticatedClient(
         }): Promise<any> {
           return post('/api/futures/v3/orders', params);
         },
+        async closePosition(params: {
+          readonly instrument_id: string;
+          readonly direction: string;
+        }): Promise<any> {
+          return post('/api/futures/v3/close_position', params);
+        },
+        async cancelAll(params: {
+          readonly instrument_id: string;
+          readonly direction: string;
+        }): Promise<any> {
+          return post('/api/futures/v3/cancel_all', params);
+        },
         async cancelOrder(
           instrument_id: string,
           order_id: string
